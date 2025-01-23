@@ -3,14 +3,28 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: linear-gradient(135deg, #ffffff, #000000);
-    background-size: 400% 400%;
-    animation: gradientAnimation 10s ease infinite;
+    background: url('images/panda.png') no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     font-family: 'UndertaleFont', sans-serif;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #ffffff, #000000);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    z-index: -1; /* Помещаем градиент под содержимое */
+    opacity: 0.7; /* Уменьшаем прозрачность для видимости изображения */
 }
 
 @keyframes gradientAnimation {
